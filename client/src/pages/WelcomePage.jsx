@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { FaCamera } from "react-icons/fa";
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios"
 import { requestMethod } from '../RequestMethod';
 import { toast } from 'react-toastify';
+import cam from "../assets/cam.jpg"
 
 
 
@@ -62,7 +62,7 @@ const WelcomePage = () => {
                             {user.profilePic || image ?
                                 <img src={image ? image : user.profilePic} alt="" className='w-full h-full object-cover' />
                                 :
-                                <FaCamera size={20} className='text-gray-500 cursor-pointer' />
+                                <img src={cam} alt='camera' className='w-8 h-8 object-cover' />
                             }
                         </div>
                         <div className="flex gap-3 flex-col">
