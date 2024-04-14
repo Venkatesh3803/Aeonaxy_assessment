@@ -6,12 +6,12 @@ import { AuthContext } from '../context/AuthContext'
 
 
 const SignUp = () => {
-    const { signUp, err } = useContext(AuthContext)
+    const { signUp, err, setErr } = useContext(AuthContext)
     const [inputs, setInputs] = useState({});
 
     const handleChange = (e) => {
         setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-        
+        setErr("")
     }
 
     const handleSubmit = (e) => {
@@ -19,7 +19,7 @@ const SignUp = () => {
         signUp(inputs)
     }
 
-    
+
 
     return (
         <div className='flex w-full h-screen'>

@@ -10,6 +10,8 @@ export const AuthContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(
         JSON.parse(localStorage.getItem("user")) || null
     );
+
+
     const [err, setErr] = useState("")
     const navigate = useNavigate()
 
@@ -25,15 +27,16 @@ export const AuthContextProvider = ({ children }) => {
             setErr(error.response?.data)
         })
     };
+
     const signUp = async (inputs) => {
         requestMethod("/auth", "post", inputs).then((res) => {
             if (res) {
-                navigate(`/welcome/${currentUser._id}`)
                 toast.success("SignUp Sucess")
                 setCurrentUser(res)
+                navigate(`/welcome/${res._id}`)
             }
         }).catch((err) => {
-            setErr(err.response.data)
+            setErr(err.response?.data)
         })
     };
 
@@ -47,7 +50,7 @@ export const AuthContextProvider = ({ children }) => {
     }, [currentUser]);
 
     return (
-        <AuthContext.Provider value={{ currentUser, err, signIn, signUp, logout, }}>
+        <AuthContext.Provider value={{ currentUser, err, signIn, signUp, logout, setErr}}>
             {children}
         </AuthContext.Provider>
     );

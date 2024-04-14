@@ -6,10 +6,11 @@ import { AuthContext } from '../context/AuthContext';
 const SignIn = () => {
 
     const [inputs, setInputs] = useState({});
-    const { signIn, err } = useContext(AuthContext)
+    const { signIn, err,setErr } = useContext(AuthContext)
 
     const handleChange = (e) => {
         setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+        setErr("")
     }
 
     const handleSubmit = (e) => {

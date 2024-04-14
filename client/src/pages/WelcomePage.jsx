@@ -14,6 +14,8 @@ const WelcomePage = () => {
     const [location, setLocation] = useState("")
     const imageRef = useRef();
     const { id } = useParams()
+
+
     const handleUploadImage = async (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -59,8 +61,8 @@ const WelcomePage = () => {
                     <h2 className='text-2xl font-bold'>Add an Avathar</h2>
                     <div className="flex gap-10">
                         <div className="border border-dashed border-gray-500 w-44 h-44 rounded-full flex items-center justify-center overflow-hidden">
-                            {user.profilePic || image ?
-                                <img src={image ? image : user.profilePic} alt="" className='w-full h-full object-cover' />
+                            {user?.profilePic || image ?
+                                <img src={image ? image : user?.profilePic} alt="" className='w-full h-full object-cover' />
                                 :
                                 <img src={cam} alt='camera' className='w-8 h-8 object-cover' />
                             }
@@ -74,7 +76,7 @@ const WelcomePage = () => {
                 </div>
                 <div className="flex flex-col gap-8">
                     <h2 className='text-2xl font-bold'>Add Location</h2>
-                    <input type="text" placeholder='Enter a Location' className='border-b border-gray-500 w-full pb-3 text-lg font-semibold focus:outline-none' value={user.location} onChange={(e) => setLocation(e.target.value)} />
+                    <input type="text" placeholder='Enter a Location' className='border-b border-gray-500 w-full pb-3 text-lg font-semibold focus:outline-none' value={user?.location} onChange={(e) => setLocation(e.target.value)} />
                 </div>
                 <div className="flex gap-5 items-center">
                     <button className={location.length <= 3 ? "disable" : 'bg-[rgb(234,75,139)] px-8 py-2 text-white font-semibold w-fit rounded-lg'} onClick={handleUpdate}>Save Changes</button>

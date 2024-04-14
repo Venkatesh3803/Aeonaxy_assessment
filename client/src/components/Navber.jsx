@@ -9,10 +9,12 @@ const Navber = () => {
     const { currentUser } = useContext(AuthContext);
     const [user, setUser] = useState("")
     useEffect(() => {
-        requestMethod(`/auth/${currentUser._id}`, "get").then((res) => {
+        requestMethod(`/auth/${currentUser?._id}`, "get").then((res) => {
             setUser(res)
         })
     }, [])
+
+    
     return (
         <div className='w-full h-[8vh] flex items-center justify-between py-1 px-8 border-b border-gray-200 sticky top-0 left-0 bg-white '>
             <div className="">
@@ -32,7 +34,7 @@ const Navber = () => {
                 </div>
                 <IoBagRemove className='text-2xl text-gray-500' />
                 <Link to={`/welcome/${currentUser._id}`}>
-                    <img src={user.profilePic ? user.profilePic : "https://www.kevinashleyphotography.com/wp-content/uploads/2015/11/person.jpg"} alt="" className='w-8 h-8 object-cover rounded-full cursor-pointer' />
+                    <img src={user?.profilePic ? user?.profilePic : "https://www.kevinashleyphotography.com/wp-content/uploads/2015/11/person.jpg"} alt="" className='w-8 h-8 object-cover rounded-full cursor-pointer' />
                 </Link>
                 <button className='text-xs bg-pink-400 text-white  px-4 py-2 rounded-md cursor-pointer'>Upload</button>
             </div>
