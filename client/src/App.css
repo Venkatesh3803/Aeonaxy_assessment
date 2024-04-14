@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.disable{
+    cursor: not-allowed;
+    background: gray;
+    padding: 8px 25px;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+}
