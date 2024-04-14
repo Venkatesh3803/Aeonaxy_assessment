@@ -3,7 +3,6 @@ import { FaCamera } from "react-icons/fa";
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios"
 import { requestMethod } from '../RequestMethod';
-
 import { toast } from 'react-toastify';
 
 

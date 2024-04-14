@@ -1,5 +1,6 @@
 import axios from "axios"
-export const baseUrl = "http://localhost:5000/api";
+export const baseUrl = "https://aeonaxy-assessment-oovq.onrender.com/api";
+// export const baseUrl = "http://localhost:5000/api";
 
 
 export const requestMethod = async (url, method, data, token) => {
